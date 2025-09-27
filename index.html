@@ -1,339 +1,323 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.1">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shobhit Poddar - Software Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chosen Palette: Warm Neutrals (bg-slate-50, text-slate-800) with a professional Blue accent (bg-blue-600) -->
+    <!-- Application Structure Plan: A single-page application with a welcoming hero section, followed by distinct, navigable sections for Summary, Experience, Skills, Projects, and Education/Credentials. A sticky navigation bar appears on scroll to facilitate easy exploration. The structure is logical, flowing like a traditional resume but enhanced with interactive elements like a vertical timeline for experience and the pre-existing tabbed interface for credentials. This non-linear navigation empowers users to jump to sections of interest, making it highly user-friendly. -->
+    <!-- Visualization & Content Choices: 1. Experience -> Vertical Timeline (HTML/CSS) for chronological storytelling. 2. Skills -> Grouped cards/tags for quick scannability. 3. Projects -> A responsive grid of cards to showcase portfolio items. 4. Education/Credentials -> Re-integration of the existing interactive tabbed component for consistency and engagement. All choices prioritize clarity, scannability, and user interaction over static lists. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* bg-slate-50 */
+        }
+        .nav-sticky {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            transition: all 0.3s ease-in-out;
+        }
+        .nav-link.active {
+            color: #2563eb; /* blue-600 */
+            font-weight: 600;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -33px;
+            top: 4px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #cbd5e1; /* slate-300 */
+            border: 2px solid #f8fafc;
+        }
+        .timeline-item:first-child::before {
+            background-color: #2563eb; /* blue-600 */
+        }
+        .tab-active {
+            border-color: #2563eb;
+            color: #2563eb;
+            background-color: #eff6ff;
+        }
+        .details-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+            padding: 0 1rem;
+        }
+        .details-panel.open {
+            max-height: 500px;
+            padding: 1rem 1rem;
+        }
+    </style>
 </head>
-<body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en" class="scroll-smooth"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Shobhit Poddar - Software Engineer&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Chosen Palette: Warm Neutrals (bg-slate-50, text-slate-800) with a professional Blue accent (bg-blue-600) --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Application Structure Plan: A single-page application with a welcoming hero section, followed by distinct, navigable sections for Summary, Experience, Skills, Projects, and Education/Credentials. A sticky navigation bar appears on scroll to facilitate easy exploration. The structure is logical, flowing like a traditional resume but enhanced with interactive elements like a vertical timeline for experience and the pre-existing tabbed interface for credentials. This non-linear navigation empowers users to jump to sections of interest, making it highly user-friendly. --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Visualization &amp; Content Choices: 1. Experience -&gt; Vertical Timeline (HTML/CSS) for chronological storytelling. 2. Skills -&gt; Grouped cards/tags for quick scannability. 3. Projects -&gt; A responsive grid of cards to showcase portfolio items. 4. Education/Credentials -&gt; Re-integration of the existing interactive tabbed component for consistency and engagement. All choices prioritize clarity, scannability, and user interaction over static lists. --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Inter', sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #f8fafc; /* bg-slate-50 */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.nav-sticky {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: sticky;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>top: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>z-index: 50;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.3s ease-in-out;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.nav-link.active {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #2563eb; /* blue-600 */</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.timeline-item::before {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>content: '';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>left: -33px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>top: 4px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>height: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 50%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #cbd5e1; /* slate-300 */</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 2px solid #f8fafc;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.timeline-item:first-child::before {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #2563eb; /* blue-600 */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.tab-active {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-color: #2563eb;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #2563eb;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #eff6ff;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.details-panel {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-height: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>overflow: hidden;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: max-height 0.5s ease-out, padding 0.5s ease-out;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.details-panel.open {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-height: 500px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 1rem 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body class="text-slate-700"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Header &amp; Hero Section --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;header class="w-full bg-white"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-5xl mx-auto px-6 py-20 text-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1 class="text-4xl md:text-6xl font-bold text-slate-900"&gt;Shobhit Poddar&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="mt-4 text-xl md:text-2xl text-blue-600 font-medium"&gt;Software Engineer&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mt-8 flex justify-center items-center flex-wrap gap-x-6 gap-y-4 text-slate-600"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="flex items-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="mr-2 text-lg"&gt;📞&lt;/span&gt; +44 7884820368</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="flex items-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="mr-2 text-lg"&gt;✉️&lt;/span&gt; poddarshobhit.002@gmail.com</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="https://www.linkedin.com/in/shobhit-poddar/" target="_blank" class="flex items-center hover:text-blue-600 transition-colors"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="mr-2 text-lg"&gt;🔗&lt;/span&gt; LinkedIn</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="https://github.com/ShobhitPoddar" target="_blank" class="flex items-center hover:text-blue-600 transition-colors"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="mr-2 text-lg"&gt;💻&lt;/span&gt; GitHub</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/header&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Sticky Navigation --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;nav id="navbar" class="nav-sticky bg-white/80 backdrop-blur-lg shadow-sm hidden"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-5xl mx-auto px-6"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex justify-center items-center h-16 space-x-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#summary" class="nav-link text-slate-600 hover:text-blue-600 transition-colors"&gt;Summary&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#experience" class="nav-link text-slate-600 hover:text-blue-600 transition-colors"&gt;Experience&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#skills" class="nav-link text-slate-600 hover:text-blue-600 transition-colors"&gt;Skills&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#projects" class="nav-link text-slate-600 hover:text-blue-600 transition-colors"&gt;Projects&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#credentials" class="nav-link text-slate-600 hover:text-blue-600 transition-colors"&gt;Credentials&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/nav&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;main class="max-w-5xl mx-auto px-6 py-12 space-y-24"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Professional Summary --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="summary"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-3xl font-bold text-slate-900 mb-6"&gt;Professional Summary&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-lg text-slate-600 leading-relaxed"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>A results-driven and certified IT professional with comprehensive expertise in Full-Stack Development, Cloud Technologies (AWS, GCP), and Software Engineering. Experienced in designing and implementing scalable architectures, automating CI/CD pipelines, and collaborating effectively in agile, cross-functional teams to deliver high-quality software solutions. Proficient in the MEAN Stack, REST API development, and containerization with Docker, with a proven ability to optimize system performance and efficiency.</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Professional Experience --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="experience"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-3xl font-bold text-slate-900 mb-10"&gt;Work Experience&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="relative border-l-2 border-slate-200 ml-8 pl-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="timeline-item mb-12"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-xl font-semibold text-slate-800"&gt;Operations Assistant&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-md font-medium text-slate-600"&gt;Ford Motor Company, UK&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;time class="text-sm text-slate-500"&gt;May 2025 – Present&lt;/time&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="mt-4 list-disc list-outside ml-5 space-y-2 text-slate-600"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Managed point-of-sale (POS) kiosk systems for internal employee transactions, ensuring accuracy in billing and data logging.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Provided excellent service to company employees, efficiently resolving inquiries and ensuring a positive workplace experience.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="timeline-item mb-12"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-xl font-semibold text-slate-800"&gt;Software Developer&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-md font-medium text-slate-600"&gt;RBD Publications, Jaipur, India&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;time class="text-sm text-slate-500"&gt;Oct 2022 – Sep 2023&lt;/time&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="mt-4 list-disc list-outside ml-5 space-y-2 text-slate-600"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Developed internal software tools that improved workflow efficiency, increasing productivity by 40%.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Designed, developed, and maintained company websites using the MEAN stack and WordPress.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Built a centralized educational service platform for schools and coaching centers.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                 </span>&lt;div class="timeline-item mb-12"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-xl font-semibold text-slate-800"&gt;Junior Software Developer&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-md font-medium text-slate-600"&gt;Felicity Care, Jaipur, India&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;time class="text-sm text-slate-500"&gt;Apr 2022 – Aug 2022&lt;/time&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="mt-4 list-disc list-outside ml-5 space-y-2 text-slate-600"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Created and tested RESTful APIs with Node.js and Postman, cutting response time by 80%.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Increased website loading speed for clients by 35% through optimized code and API implementation.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="timeline-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-xl font-semibold text-slate-800"&gt;DevOps Engineer&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="text-md font-medium text-slate-600"&gt;Arustu Technologies, Jaipur, India&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;time class="text-sm text-slate-500"&gt;Jul 2021 – Feb 2022&lt;/time&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;ul class="mt-4 list-disc list-outside ml-5 space-y-2 text-slate-600"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Deployed and managed AWS cloud infrastructure for clients including Axis Bank and Uspeek.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Designed scalable architectures and monitored cloud performance and security.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;li&gt;Supported development teams with Docker containerization best practices.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Technical Skills --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="skills"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-3xl font-bold text-slate-900 mb-8"&gt;Technical Skills&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="skill-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="font-semibold text-lg text-slate-800 mb-4"&gt;Programming&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex flex-wrap gap-2"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="skill-tag"&gt;Java&lt;/span&gt;&lt;span class="skill-tag"&gt;Python&lt;/span&gt;&lt;span class="skill-tag"&gt;JavaScript&lt;/span&gt;&lt;span class="skill-tag"&gt;TypeScript&lt;/span&gt;&lt;span class="skill-tag"&gt;C++&lt;/span&gt;&lt;span class="skill-tag"&gt;Shell Scripting&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="skill-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="font-semibold text-lg text-slate-800 mb-4"&gt;Frameworks &amp; Tools&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex flex-wrap gap-2"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                         </span>&lt;span class="skill-tag"&gt;MEAN Stack&lt;/span&gt;&lt;span class="skill-tag"&gt;REST APIs&lt;/span&gt;&lt;span class="skill-tag"&gt;Git&lt;/span&gt;&lt;span class="skill-tag"&gt;Docker&lt;/span&gt;&lt;span class="skill-tag"&gt;Postman&lt;/span&gt;&lt;span class="skill-tag"&gt;Jira&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="skill-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="font-semibold text-lg text-slate-800 mb-4"&gt;Cloud &amp; OS&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex flex-wrap gap-2"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="skill-tag"&gt;AWS&lt;/span&gt;&lt;span class="skill-tag"&gt;GCP&lt;/span&gt;&lt;span class="skill-tag"&gt;Windows&lt;/span&gt;&lt;span class="skill-tag"&gt;Linux&lt;/span&gt;&lt;span class="skill-tag"&gt;macOS&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Projects --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="projects"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-3xl font-bold text-slate-900 mb-8"&gt;Projects&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="grid grid-cols-1 md:grid-cols-2 gap-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="project-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-xl font-semibold text-slate-800"&gt;Mental Health AI Chatbot&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mt-2 text-slate-600"&gt;Built an AI-powered self-learning chatbot integrated with NLP models to provide adaptive, personalized responses as part of my MSc dissertation.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="project-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-xl font-semibold text-slate-800"&gt;Panda Feeding Problem&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mt-2 text-slate-600"&gt;Developed an algorithm to optimize bamboo harvesting schedules, utilizing mathematical modeling and periodic scheduling techniques.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="project-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-xl font-semibold text-slate-800"&gt;Exam Cheating Codes&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mt-2 text-slate-600"&gt;Designed and implemented algorithmic solutions to minimize the worst-case Hamming distance for an encoding and decoding protocol.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="project-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h3 class="text-xl font-semibold text-slate-800"&gt;Client Websites&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mt-2 text-slate-600"&gt;Developed multiple sites including rbdbooks.com (WordPress, MEAN), felicity.care (MEAN), and scotrailuniforms.co.uk (WordPress).&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Education &amp; Credentials --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;section id="credentials"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-slate-200"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;header class="text-center mb-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h2 class="text-3xl font-bold text-slate-900"&gt;Education &amp; Credentials&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mt-2 text-slate-600 max-w-2xl mx-auto"&gt;An interactive overview of my academic qualifications, professional certifications, and awards.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/header&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="mb-6 border-b border-slate-200"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;nav class="flex flex-wrap -mb-px space-x-1 md:space-x-4" aria-label="Tabs"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button class="tab-btn tab-active" data-tab="education"&gt;Education&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button class="tab-btn" data-tab="certifications"&gt;Certifications&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button class="tab-btn" data-tab="awards"&gt;Awards&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/nav&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div id="content-panels"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div id="education-panel" class="tab-panel"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="relative border-l-2 border-slate-200 ml-5 pl-8 py-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="timeline-item mb-12"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;button class="w-full text-left focus:outline-none" id="msc-toggle"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div class="flex items-center justify-between"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                            </span>&lt;h3 class="text-lg font-semibold text-slate-900"&gt;MSc. Advanced Computer Science&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                            </span>&lt;p class="text-md text-slate-600"&gt;University of Liverpool, UK&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                            </span>&lt;time class="text-sm font-medium text-slate-500"&gt;2023 – 2024&lt;/time&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;span id="msc-arrow" class="text-2xl text-blue-600 transform transition-transform duration-300"&gt;▼&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div id="msc-details" class="details-panel"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;div class="mt-4 pt-4 border-t border-slate-200"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;p class="font-semibold text-slate-700"&gt;Dissertation:&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                        </span>&lt;p class="text-slate-600 italic"&gt;Developed a Mental Health Care Website with an Integrated AI Chatbot featuring self-learning capabilities using AI &amp; ML technology.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="timeline-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h3 class="text-lg font-semibold text-slate-900"&gt;B.Tech / BSc. Computer Science&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-md text-slate-600"&gt;Suresh Gyan Vihar University, India&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>&lt;time class="text-sm font-medium text-slate-500"&gt;2018 – 2022&lt;/time&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div id="certifications-panel" class="tab-panel hidden"&gt;&lt;div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"&gt;&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div id="awards-panel" class="tab-panel hidden"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/main&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;footer class="bg-white mt-16 border-t border-slate-200"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="max-w-5xl mx-auto px-6 py-8 text-center text-slate-500"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;&amp;copy; 2025 Shobhit Poddar. All rights reserved.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/footer&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const navbar = document.getElementById('navbar');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const sections = document.querySelectorAll('section');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const navLinks = document.querySelectorAll('.nav-link');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const skillCardStyles = 'bg-white p-6 rounded-lg shadow-sm border border-slate-200';</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const skillTagStyles = 'bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full';</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const projectCardStyles = 'bg-white p-6 rounded-lg shadow-sm border border-slate-200 hover:shadow-lg hover:border-blue-500 transition-all duration-300';</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>document.querySelectorAll('.skill-card').forEach(c =&gt; c.className = skillCardStyles);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>document.querySelectorAll('.skill-tag').forEach(t =&gt; t.className = skillTagStyles);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>document.querySelectorAll('.project-card').forEach(c =&gt; c.className = projectCardStyles);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>window.onscroll = () =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (window.scrollY &gt; 300) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>navbar.classList.remove('hidden');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>navbar.classList.add('hidden');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>};</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>const observer = new IntersectionObserver((entries) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>entries.forEach(entry =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>if (entry.isIntersecting) {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>navLinks.forEach(link =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>link.classList.toggle('active', link.getAttribute('href').substring(1) === entry.target.id);</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>});</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}, { rootMargin: '-50% 0px -50% 0px' });</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>sections.forEach(sec =&gt; observer.observe(sec));</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>const tabs = document.querySelectorAll('.tab-btn');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const panels = document.querySelectorAll('.tab-panel');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const mscToggle = document.getElementById('msc-toggle');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const mscDetails = document.getElementById('msc-details');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const mscArrow = document.getElementById('msc-arrow');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const tabStyles = 'inline-block py-3 px-4 text-sm font-medium text-center text-slate-500 rounded-t-lg border-b-2 border-transparent hover:text-slate-700 hover:border-slate-300 focus:outline-none transition-colors duration-300';</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const certsContainer = document.querySelector('#certifications-panel .grid');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const awardsContainer = document.getElementById('awards-panel');</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>const certificationsData = [</p>
-<p class="p1"><span class="Apple-converted-space">            </span>'AWS Certified Developer – Associate', 'Google Cloud Platform – Associate Cloud Engineer', 'MongoDB Certified Developer',</p>
-<p class="p1"><span class="Apple-converted-space">            </span>'IBM Certified Design Thinker Practitioner', 'Certified Network Security Expert (Level 1-4)', 'Google Technical Support Fundamentals'</p>
-<p class="p1"><span class="Apple-converted-space">        </span>];</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const awardsData = {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>title: 'Bentley iTwin4Good 2023-2024',</p>
-<p class="p1"><span class="Apple-converted-space">            </span>description: 'Ranked Top 12 in England &amp; Ireland for the "Road Friction Green Storage Application" topic.'</p>
-<p class="p1"><span class="Apple-converted-space">        </span>};</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>certsContainer.innerHTML = certificationsData.map(cert =&gt; `&lt;div class="bg-slate-50 p-4 rounded-lg border border-slate-200 text-center font-medium text-slate-700 hover:shadow-md hover:border-blue-500 transition-all duration-300"&gt;${cert}&lt;/div&gt;`).join('');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>awardsContainer.innerHTML = `&lt;div class="bg-blue-50 border border-blue-200 rounded-lg p-6 flex items-center space-x-4"&gt;&lt;span class="text-4xl"&gt;🏆&lt;/span&gt;&lt;div&gt;&lt;h3 class="text-lg font-semibold text-blue-800"&gt;${awardsData.title}&lt;/h3&gt;&lt;p class="text-blue-700"&gt;${awardsData.description}&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;`;</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>tabs.forEach(tab =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>tab.className = tabStyles;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (tab.classList.contains('tab-active')) tab.classList.add('tab-active');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>tab.addEventListener('click', () =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>tabs.forEach(t =&gt; { t.className = tabStyles; t.classList.remove('tab-active'); });</p>
-<p class="p1"><span class="Apple-converted-space">                </span>tab.classList.add('tab-active');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const targetPanelId = tab.dataset.tab + '-panel';</p>
-<p class="p1"><span class="Apple-converted-space">                </span>panels.forEach(panel =&gt; panel.classList.toggle('hidden', panel.id !== targetPanelId));</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p1"><span class="Apple-converted-space">        </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>mscToggle.addEventListener('click', () =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>mscDetails.classList.toggle('open');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>mscArrow.classList.toggle('rotate-180');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>});</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+<body class="text-slate-700">
+
+    <!-- Header & Hero Section -->
+    <header class="w-full bg-white">
+        <div class="max-w-5xl mx-auto px-6 py-20 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold text-slate-900">Shobhit Poddar</h1>
+            <p class="mt-4 text-xl md:text-2xl text-blue-600 font-medium">Software Engineer</p>
+            <div class="mt-8 flex justify-center items-center flex-wrap gap-x-6 gap-y-4 text-slate-600">
+                <span class="flex items-center">
+                    <span class="mr-2 text-lg">📞</span> +44 7884820368
+                </span>
+                <span class="flex items-center">
+                    <span class="mr-2 text-lg">✉️</span> poddarshobhit.002@gmail.com
+                </span>
+                <a href="https://www.linkedin.com/in/shobhit-poddar/" target="_blank" class="flex items-center hover:text-blue-600 transition-colors">
+                    <span class="mr-2 text-lg">🔗</span> LinkedIn
+                </a>
+                <a href="https://github.com/ShobhitPoddar" target="_blank" class="flex items-center hover:text-blue-600 transition-colors">
+                    <span class="mr-2 text-lg">💻</span> GitHub
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sticky Navigation -->
+    <nav id="navbar" class="nav-sticky bg-white/80 backdrop-blur-lg shadow-sm hidden">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="flex justify-center items-center h-16 space-x-8">
+                <a href="#summary" class="nav-link text-slate-600 hover:text-blue-600 transition-colors">Summary</a>
+                <a href="#experience" class="nav-link text-slate-600 hover:text-blue-600 transition-colors">Experience</a>
+                <a href="#skills" class="nav-link text-slate-600 hover:text-blue-600 transition-colors">Skills</a>
+                <a href="#projects" class="nav-link text-slate-600 hover:text-blue-600 transition-colors">Projects</a>
+                <a href="#credentials" class="nav-link text-slate-600 hover:text-blue-600 transition-colors">Credentials</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-5xl mx-auto px-6 py-12 space-y-24">
+        <!-- Professional Summary -->
+        <section id="summary">
+            <h2 class="text-3xl font-bold text-slate-900 mb-6">Professional Summary</h2>
+            <p class="text-lg text-slate-600 leading-relaxed">
+                A results-driven and certified IT professional with comprehensive expertise in Full-Stack Development, Cloud Technologies (AWS, GCP), and Software Engineering. Experienced in designing and implementing scalable architectures, automating CI/CD pipelines, and collaborating effectively in agile, cross-functional teams to deliver high-quality software solutions. Proficient in the MEAN Stack, REST API development, and containerization with Docker, with a proven ability to optimize system performance and efficiency.
+            </p>
+        </section>
+
+        <!-- Professional Experience -->
+        <section id="experience">
+            <h2 class="text-3xl font-bold text-slate-900 mb-10">Work Experience</h2>
+            <div class="relative border-l-2 border-slate-200 ml-8 pl-8">
+                <div class="timeline-item mb-12">
+                    <h3 class="text-xl font-semibold text-slate-800">Operations Assistant</h3>
+                    <p class="text-md font-medium text-slate-600">Ford Motor Company, UK</p>
+                    <time class="text-sm text-slate-500">May 2025 – Present</time>
+                    <ul class="mt-4 list-disc list-outside ml-5 space-y-2 text-slate-600">
+                        <li>Managed point-of-sale (POS) kiosk systems for internal employee transactions, ensuring accuracy in billing and data logging.</li>
+                        <li>Provided excellent service to company employees, efficiently resolving inquiries and ensuring a positive workplace experience.</li>
+                    </ul>
+                </div>
+                <div class="timeline-item mb-12">
+                    <h3 class="text-xl font-semibold text-slate-800">Software Developer</h3>
+                    <p class="text-md font-medium text-slate-600">RBD Publications, Jaipur, India</p>
+                    <time class="text-sm text-slate-500">Oct 2022 – Sep 2023</time>
+                    <ul class="mt-4 list-disc list-outside ml-5 space-y-2 text-slate-600">
+                        <li>Developed internal software tools that improved workflow efficiency, increasing productivity by 40%.</li>
+                        <li>Designed, developed, and maintained company websites using the MEAN stack and WordPress.</li>
+                        <li>Built a centralized educational service platform for schools and coaching centers.</li>
+                    </ul>
+                </div>
+                 <div class="timeline-item mb-12">
+                    <h3 class="text-xl font-semibold text-slate-800">Junior Software Developer</h3>
+                    <p class="text-md font-medium text-slate-600">Felicity Care, Jaipur, India</p>
+                    <time class="text-sm text-slate-500">Apr 2022 – Aug 2022</time>
+                    <ul class="mt-4 list-disc list-outside ml-5 space-y-2 text-slate-600">
+                        <li>Created and tested RESTful APIs with Node.js and Postman, cutting response time by 80%.</li>
+                        <li>Increased website loading speed for clients by 35% through optimized code and API implementation.</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-xl font-semibold text-slate-800">DevOps Engineer</h3>
+                    <p class="text-md font-medium text-slate-600">Arustu Technologies, Jaipur, India</p>
+                    <time class="text-sm text-slate-500">Jul 2021 – Feb 2022</time>
+                    <ul class="mt-4 list-disc list-outside ml-5 space-y-2 text-slate-600">
+                        <li>Deployed and managed AWS cloud infrastructure for clients including Axis Bank and Uspeek.</li>
+                        <li>Designed scalable architectures and monitored cloud performance and security.</li>
+                        <li>Supported development teams with Docker containerization best practices.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Skills -->
+        <section id="skills">
+            <h2 class="text-3xl font-bold text-slate-900 mb-8">Technical Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="skill-card">
+                    <h3 class="font-semibold text-lg text-slate-800 mb-4">Programming</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag">Java</span><span class="skill-tag">Python</span><span class="skill-tag">JavaScript</span><span class="skill-tag">TypeScript</span><span class="skill-tag">C++</span><span class="skill-tag">Shell Scripting</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3 class="font-semibold text-lg text-slate-800 mb-4">Frameworks & Tools</h3>
+                    <div class="flex flex-wrap gap-2">
+                         <span class="skill-tag">MEAN Stack</span><span class="skill-tag">REST APIs</span><span class="skill-tag">Git</span><span class="skill-tag">Docker</span><span class="skill-tag">Postman</span><span class="skill-tag">Jira</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3 class="font-semibold text-lg text-slate-800 mb-4">Cloud & OS</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag">AWS</span><span class="skill-tag">GCP</span><span class="skill-tag">Windows</span><span class="skill-tag">Linux</span><span class="skill-tag">macOS</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects">
+            <h2 class="text-3xl font-bold text-slate-900 mb-8">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="project-card">
+                    <h3 class="text-xl font-semibold text-slate-800">Mental Health AI Chatbot</h3>
+                    <p class="mt-2 text-slate-600">Built an AI-powered self-learning chatbot integrated with NLP models to provide adaptive, personalized responses as part of my MSc dissertation.</p>
+                </div>
+                <div class="project-card">
+                    <h3 class="text-xl font-semibold text-slate-800">Panda Feeding Problem</h3>
+                    <p class="mt-2 text-slate-600">Developed an algorithm to optimize bamboo harvesting schedules, utilizing mathematical modeling and periodic scheduling techniques.</p>
+                </div>
+                <div class="project-card">
+                    <h3 class="text-xl font-semibold text-slate-800">Exam Cheating Codes</h3>
+                    <p class="mt-2 text-slate-600">Designed and implemented algorithmic solutions to minimize the worst-case Hamming distance for an encoding and decoding protocol.</p>
+                </div>
+                <div class="project-card">
+                    <h3 class="text-xl font-semibold text-slate-800">Client Websites</h3>
+                    <p class="mt-2 text-slate-600">Developed multiple sites including rbdbooks.com (WordPress, MEAN), felicity.care (MEAN), and scotrailuniforms.co.uk (WordPress).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Credentials -->
+        <section id="credentials">
+            <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-slate-200">
+                <header class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-slate-900">Education & Credentials</h2>
+                    <p class="mt-2 text-slate-600 max-w-2xl mx-auto">An interactive overview of my academic qualifications, professional certifications, and awards.</p>
+                </header>
+                <div class="mb-6 border-b border-slate-200">
+                    <nav class="flex flex-wrap -mb-px space-x-1 md:space-x-4" aria-label="Tabs">
+                        <button class="tab-btn tab-active" data-tab="education">Education</button>
+                        <button class="tab-btn" data-tab="certifications">Certifications</button>
+                        <button class="tab-btn" data-tab="awards">Awards</button>
+                    </nav>
+                </div>
+                <div id="content-panels">
+                    <div id="education-panel" class="tab-panel">
+                        <div class="relative border-l-2 border-slate-200 ml-5 pl-8 py-4">
+                            <div class="timeline-item mb-12">
+                                <button class="w-full text-left focus:outline-none" id="msc-toggle">
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <h3 class="text-lg font-semibold text-slate-900">MSc. Advanced Computer Science</h3>
+                                            <p class="text-md text-slate-600">University of Liverpool, UK</p>
+                                            <time class="text-sm font-medium text-slate-500">2023 – 2024</time>
+                                        </div>
+                                        <span id="msc-arrow" class="text-2xl text-blue-600 transform transition-transform duration-300">▼</span>
+                                    </div>
+                                </button>
+                                <div id="msc-details" class="details-panel">
+                                    <div class="mt-4 pt-4 border-t border-slate-200">
+                                        <p class="font-semibold text-slate-700">Dissertation:</p>
+                                        <p class="text-slate-600 italic">Developed a Mental Health Care Website with an Integrated AI Chatbot featuring self-learning capabilities using AI & ML technology.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <h3 class="text-lg font-semibold text-slate-900">B.Tech / BSc. Computer Science</h3>
+                                <p class="text-md text-slate-600">Suresh Gyan Vihar University, India</p>
+                                <time class="text-sm font-medium text-slate-500">2018 – 2022</time>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="certifications-panel" class="tab-panel hidden"><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div></div>
+                    <div id="awards-panel" class="tab-panel hidden"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white mt-16 border-t border-slate-200">
+        <div class="max-w-5xl mx-auto px-6 py-8 text-center text-slate-500">
+            <p>&copy; 2025 Shobhit Poddar. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const navbar = document.getElementById('navbar');
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const skillCardStyles = 'bg-white p-6 rounded-lg shadow-sm border border-slate-200';
+        const skillTagStyles = 'bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full';
+        const projectCardStyles = 'bg-white p-6 rounded-lg shadow-sm border border-slate-200 hover:shadow-lg hover:border-blue-500 transition-all duration-300';
+        
+        document.querySelectorAll('.skill-card').forEach(c => c.className = skillCardStyles);
+        document.querySelectorAll('.skill-tag').forEach(t => t.className = skillTagStyles);
+        document.querySelectorAll('.project-card').forEach(c => c.className = projectCardStyles);
+
+        window.onscroll = () => {
+            if (window.scrollY > 300) {
+                navbar.classList.remove('hidden');
+            } else {
+                navbar.classList.add('hidden');
+            }
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => {
+                        link.classList.toggle('active', link.getAttribute('href').substring(1) === entry.target.id);
+                    });
+                }
+            });
+        }, { rootMargin: '-50% 0px -50% 0px' });
+
+        sections.forEach(sec => observer.observe(sec));
+
+        const tabs = document.querySelectorAll('.tab-btn');
+        const panels = document.querySelectorAll('.tab-panel');
+        const mscToggle = document.getElementById('msc-toggle');
+        const mscDetails = document.getElementById('msc-details');
+        const mscArrow = document.getElementById('msc-arrow');
+        const tabStyles = 'inline-block py-3 px-4 text-sm font-medium text-center text-slate-500 rounded-t-lg border-b-2 border-transparent hover:text-slate-700 hover:border-slate-300 focus:outline-none transition-colors duration-300';
+        const certsContainer = document.querySelector('#certifications-panel .grid');
+        const awardsContainer = document.getElementById('awards-panel');
+
+        const certificationsData = [
+            'AWS Certified Developer – Associate', 'Google Cloud Platform – Associate Cloud Engineer', 'MongoDB Certified Developer',
+            'IBM Certified Design Thinker Practitioner', 'Certified Network Security Expert (Level 1-4)', 'Google Technical Support Fundamentals'
+        ];
+        const awardsData = {
+            title: 'Bentley iTwin4Good 2023-2024',
+            description: 'Ranked Top 12 in England & Ireland for the "Road Friction Green Storage Application" topic.'
+        };
+
+        certsContainer.innerHTML = certificationsData.map(cert => `<div class="bg-slate-50 p-4 rounded-lg border border-slate-200 text-center font-medium text-slate-700 hover:shadow-md hover:border-blue-500 transition-all duration-300">${cert}</div>`).join('');
+        awardsContainer.innerHTML = `<div class="bg-blue-50 border border-blue-200 rounded-lg p-6 flex items-center space-x-4"><span class="text-4xl">🏆</span><div><h3 class="text-lg font-semibold text-blue-800">${awardsData.title}</h3><p class="text-blue-700">${awardsData.description}</p></div></div>`;
+        
+        tabs.forEach(tab => {
+            tab.className = tabStyles;
+            if (tab.classList.contains('tab-active')) tab.classList.add('tab-active');
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => { t.className = tabStyles; t.classList.remove('tab-active'); });
+                tab.classList.add('tab-active');
+                const targetPanelId = tab.dataset.tab + '-panel';
+                panels.forEach(panel => panel.classList.toggle('hidden', panel.id !== targetPanelId));
+            });
+        });
+
+        mscToggle.addEventListener('click', () => {
+            mscDetails.classList.toggle('open');
+            mscArrow.classList.toggle('rotate-180');
+        });
+    </script>
 </body>
 </html>
