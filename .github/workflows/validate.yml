@@ -1,0 +1,13 @@
+name: Validate
+on: [push, pull_request]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          test -f index.html
+          test -f style.css
+          test -f Shobhit_Poddar_CV.pdf
+          grep -q 'github.com/ShobhitPoddar' index.html
+          grep -q 'linkedin.com/in/shobhit-poddar' index.html
